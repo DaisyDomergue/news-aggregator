@@ -43,6 +43,7 @@ Blackbox Test
 Can also be done by importing the news-aggregator.postman_collection.json
 
 # Extra Functionalities other than requirments
-This project uses pandas a data-science framework to enchance the result of apis
-Postman collection is included for blackbox testing
-make file for easy setup and run of commands
+
+- This project uses pandas a data-science framework to enchance the result of apis
+- Postman collection is included for blackbox testing
+- Makefile for easy setup and run of commands
