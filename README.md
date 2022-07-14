@@ -4,10 +4,10 @@ A simple fast api rest app that either fetch latest news or search news from two
 assumes python and make or cmake are install in ubuntu/mac
 
 dependecies 
-    fastapi
-    pandas
+    - fastapi
+    - pandas
 
-    uvicorn
+    - uvicorn
 
 To install dependencies
 
