@@ -39,4 +39,5 @@ curl --location --request GET '127.0.0.1:8000/search/topic'
 ```
 Replace topic with and subject you want to search
 
-Test can also be done by importing the news-aggregator.postman_collection.json
+Blackbox Test 
+Can also be done by importing the news-aggregator.postman_collection.json
