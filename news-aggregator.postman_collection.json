@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "679c0baf-ad81-4c1b-8745-9d06ca1c43fc",
+		"name": "news-aggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11468424"
+	},
+	"item": [
+		{
+			"name": "Search Topic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/search/{query}",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"search",
+						"{query}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Latest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

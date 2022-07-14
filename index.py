@@ -6,16 +6,25 @@ import requests
 import requests.auth
 import json
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+SEARCH_URL_NEWSAPI = "https://newsapi.org/v2/everything?"
+LATEST_URL_NEWSAPI = "https://newsapi.org/v2/top-headlines?"
+
+SEARCH_URL_REDDIT = "https://www.reddit.com/r/news/search.json?"
+LATEST_URL_REDDIT = "https://www.reddit.com/r/news/hot.json?"
+
 app = FastAPI()
 
 
 @app.get("/")
-async def read_root(): 
+async def get_latest_news(): 
     return search_reddit_news() + search_newsapi()
 
 
 @app.get("/search/{query}")
-async def read_item(query):
+async def get_news_by_topic(query):
     
     return search_reddit_news(query) + search_newsapi(query)
 
@@ -28,24 +37,23 @@ def proccess_newsapi_response(articles):
 
 def search_newsapi(query=""):
     if query != "":
-        url_root = "https://newsapi.org/v2/everything?"
+        url_root = SEARCH_URL_NEWSAPI
         payload="q="+query
     else:
-        url_root = "https://newsapi.org/v2/top-headlines?"
+        url_root = LATEST_URL_NEWSAPI
         payload="country=us"
     headers = {}
     headers['x-api-key'] = "6aebb03a996f4961ab65c5d62508f867"
     url = url_root + payload
     response = requests.request("GET", url, headers=headers)
-    # print(response.text)
     return proccess_newsapi_response(response.json()['articles'])
 
 def search_reddit_news(query=""):
     if query != "":
-        reddit_url = "https://www.reddit.com/r/news/search.json?"
+        reddit_url = SEARCH_URL_REDDIT
         payload="q="+query
     else:
-        reddit_url = "https://www.reddit.com/r/news/hot.json?"
+        reddit_url = LATEST_URL_REDDIT
         payload=""
     headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; PPC Mac OS X 10_8_7 rv:5.0; en-US) AppleWebKit/533.31.5 (KHTML, like Gecko) Version/4.0 Safari/533.31.5',
