@@ -2,6 +2,7 @@ import unittest
 import index
 import json
 
+
 class Testing(unittest.TestCase):
     def setUp(self):
 
@@ -13,8 +14,8 @@ class Testing(unittest.TestCase):
         data_reddit = json.load(f)
         f.close()
 
-        self.newsapi_processor_response = index.proccess_newsapi_response(data_newsapi['articles'])
-        self.reddit_processor_response = index.proccess_reddit_response(data_reddit['data']['children'])
+        self.newsapi_processor_response =  index.proccess_newsapi_response(data_newsapi['articles'])
+        self.reddit_processor_response =  index.proccess_reddit_response(data_reddit['data']['children'])
 
         self.newsapi_response_get_latest = index.search_newsapi()
         self.reddit_response_get_latest = index.search_reddit_news()
@@ -23,7 +24,6 @@ class Testing(unittest.TestCase):
         self.reddit_response_search = index.search_reddit_news("game")
 
         self.newsapi_api_response_get_latest = index.get_latest_news()
-
         self.newsapi_api_response_search = index.get_news_by_topic("game")
 
     def test_newsapi_proccessor_is_list(self):
